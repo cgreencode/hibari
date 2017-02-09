@@ -31,7 +31,7 @@ Ratings: {{ user.attributes.ratingsCount }}
 Posts: {{ user.attributes.postsCount }}
 Comments: {{ user.attributes.commentsCount }}
 Likes Given: {{ user.attributes.likesGivenCount }}
-Likes Received: {{ user.attributes.likesReceivedCount }}
+Likes Recieved: {{ user.attributes.likesRecievedCount }}
 Reviews: {{ user.attributes.reviewsCount }}
 Pro: {{ user.attributes.proExpiresAt }}
       </pre>
@@ -65,14 +65,14 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: function() {
+    fetchData: () => {
       this.error = this.user = null
       this.loading = true
 
       this.$http.get('https://kitsu.io/api/edge/users?filter[name]=' + this.$route.params.id, {}, {
         headers: {
-          "Content-Type": "application/vnd.api+json",
-          "Accept": "application/vnd.api+json"
+          'Content-Type': 'application/vnd.api+json',
+          'Accept': 'application/vnd.api+json'
         }
       })
       .then((data) => {
