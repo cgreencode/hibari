@@ -31,7 +31,7 @@ Ratings: {{ user.attributes.ratingsCount }}
 Posts: {{ user.attributes.postsCount }}
 Comments: {{ user.attributes.commentsCount }}
 Likes Given: {{ user.attributes.likesGivenCount }}
-Likes Recieved: {{ user.attributes.likesRecievedCount }}
+Likes Received: {{ user.attributes.likesReceivedCount }}
 Reviews: {{ user.attributes.reviewsCount }}
 Pro: {{ user.attributes.proExpiresAt }}
       </pre>
@@ -69,10 +69,15 @@ export default {
       this.error = this.user = null
       this.loading = true
 
+      // TODO: ?include=relationshipdata
+      // TODO: Get only specific fields: ?fields[attributes]=slug
+      // TODO: For libraries sort items by last updated in request, e.g:
+      // /people?sort=age,author.name
       this.$http.get('https://kitsu.io/api/edge/users?filter[name]=' + this.$route.params.id, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
-          'Accept': 'application/vnd.api+json'
+          'Accept': 'application/vnd.api+json',
+          'User-Agent': 'hibari'
         }
       })
       .then((data) => {
