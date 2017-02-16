@@ -51,10 +51,10 @@
       checkStore () {
         this.loading = true
         if (this.$store.state.manga[this.$route.params.query] !== undefined) {
-          console.info('[HB]: Data retrived from store')
+          console.info('[APP] Loaded manga information from store')
           this.displayData(true)
         } else {
-          console.info('[HB]: Data retrived from API')
+          console.info('[APP] Downloaded manga information to store')
           this.fetchData()
         }
       },
@@ -102,7 +102,7 @@
       .cover
         margin-top: -56px
         width: 100vw
-        height: 456px
+        height: 400px
         background-color: $primary
         background-size: cover
         background-position: center
