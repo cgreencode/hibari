@@ -31,7 +31,7 @@ export default {
     }
   },
   user: {
-    kitsuProfile: 'View on Kitsu',
+    kitsuProfile: 'Kitsu Profile',
     navigation: {
       profile: 'Profile',
       library: 'Library'
